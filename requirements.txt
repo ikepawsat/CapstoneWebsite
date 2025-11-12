@@ -1,0 +1,9 @@
+django
+django-import-export
+numpy
+scikit-learn
+pandas
+gunicorn
+whitenoise
+psycopg2-binary
+dj-database-url

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Projected Cutoff Time: {{ predicted_cutoff.buffer_time }}</h1>
+
+<p>Based on {{ predicted_cutoff.count }} data points.</p>
+<p>Predicted amount of current applicants: {{ predicted_cutoff.applicants }}</p>
+
+{% if predicted_cutoff.error %}
+    <p style="color: red;">{{ predicted_cutoff.error }}</p>
+{% endif %}
+
+<p>Confidence Interval Low: {{ predicted_cutoff.ci_low }}</p>
+<p>Confidence Interval High: {{ predicted_cutoff.ci_high }}</p>
+
+<H2>To Do:</H2>
+<p>Info on how CI works</p>
+<p>Size up ratio?</p>
+<p>2026 dataset</p>
+<p>Tableau Dashboard</p>
+{% endblock %}

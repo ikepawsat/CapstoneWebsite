@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Boston Marathon Predictor{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+    <nav>
+        <a href="{% url 'home' %}">BC Predictor</p>
+        <div>
+            <a href="{% url 'form' %}">Form</a>
+            <a href="{% url 'explore' %}">Explore</a>
+            <a href="{% url 'history' %}">History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

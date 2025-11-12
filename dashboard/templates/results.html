@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Results{% endblock %}
+
+    {% block content %}
+    <h1>Results</h1>
+    <p>We believe that the projected cutoff time based on the data entered would be: <strong>{{ predicted_cutoff }}</strong> so time: <strong>{{ predicted_cutoff_time }}</strong></p>
+    <p>Will you qualify for Boston? <strong>{{ result }}</strong></p>
+    <p>You entered time: <strong>{{ time }}</strong> and your age is: <strong>{{ age }}</strong> for <strong>{{ gender }}</strong> divison</p>
+    <p>The Boston Marathon Cutoff time for your age and gender group is: <strong>{{ qual_time }}</strong></p>
+    <p>Time difference from predicted: <strong>{{ buffer }}</strong></p>
+    <h1>Need to do predicted cutoff</h1>
+
+    <p>Need to show confidence interval here, explain that BM could take anywhere between ~22k-~24k runners</p>
+
+
+    <div class="tableauPlaceholder" id="vizDashboard" style="position: relative">
+        <noscript>
+          <a href="#">
+            <img alt="Dashboard 1"
+                 src="https://public.tableau.com/static/images/te/testfords/Dashboard1/1_rss.png"
+                 style="border: none" />
+          </a>
+        </noscript>
+      
+        <object class="tableauViz" style="display:none;">
+          <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+          <param name="embed_code_version" value="3" />
+          <param name="site_root" value="" />
+          <param name="name" value="testfords/Dashboard1" />
+          <param name="tabs" value="no" />
+          <param name="toolbar" value="yes" />
+          <param name="static_image"
+                 value="https://public.tableau.com/static/images/te/testfords/Dashboard1/1.png" />
+          <param name="animate_transition" value="yes" />
+          <param name="display_static_image" value="yes" />
+          <param name="display_spinner" value="yes" />
+          <param name="display_overlay" value="yes" />
+          <param name="display_count" value="yes" />
+          <param name="language" value="en-US" />
+        </object>
+      </div>
+      
+      <script type="text/javascript">
+        var divElement = document.getElementById('vizDashboard');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    {% endblock %}
+</body>
+</html>
