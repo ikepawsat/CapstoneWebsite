@@ -1,12 +1,7 @@
 from django.shortcuts import render
-from .services.predictor import predict_cutoff_for_year
 
 def home(request):
-    prediction = predict_cutoff_for_year(2025)
-
-    return render(request, "home.html", {
-        "predicted_cutoff": prediction
-    })
+    return render(request, "home.html")
 
 def explore(request):
     return render(request, "explore.html")
