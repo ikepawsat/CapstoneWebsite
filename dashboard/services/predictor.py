@@ -29,6 +29,15 @@ def predict_cutoff_for_year(n_bootstrap=200, threshold=0.53, size_up_ratio=1, bi
 
     # Build feature array from database
     qs = BostonQualifier.objects.filter(Buffer__isnull=False)
+    if not qs.exists():
+        return {
+            "buffer_seconds": "NA",
+            "buffer_time": "NA",
+            "count": "NA",
+            "applicants": "NA",
+            "ci_low": "NA",
+            "ci_high": "NA",
+        }
     X = []
     for q in qs:
         if None in [q.Country, q.Year, q.Age, q.Gender, q.Race_Distance_to_Boston_mi,
