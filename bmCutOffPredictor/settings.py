@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^!bdg6!7!gwae9=-35%6hs0w^0osf12dwb$9s)n8578830g^w$'
 
 # changed to False and from [] for render hosting
-DEBUG = False
-ALLOWED_HOSTS = ['.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,8 +131,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 #below 3 lines are for render hosting
-STATIC_ROOT = BASE_DIR / "staticfiles"
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
