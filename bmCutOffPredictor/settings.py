@@ -73,8 +73,8 @@ WSGI_APPLICATION = 'bmCutOffPredictor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-"""DATABASES = {
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'bmCutOffPredictor.wsgi.application'
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://capstone_db_3zr8_user:IJSwol8ksvuA3oYLWwSlp1TAGHirVeE1@dpg-d4adfvjuibrs73cc4i0g-a/capstone_db_3zr8',  # fallback
+        default='',  # fallback
         conn_max_age=600,  # keep connections alive
         ssl_require=True
     )
