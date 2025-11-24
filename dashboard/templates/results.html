@@ -9,14 +9,15 @@
     {% block title %}Results{% endblock %}
 
     {% block content %}
-    <h1>Results</h1>
-    <p>We believe that the projected cutoff time based on the data entered would be: <strong>{{ predicted_cutoff }}</strong> so time: <strong>{{ predicted_cutoff_time }}</strong></p>
-    <p>Will you qualify for Boston? <strong>{{ result }}</strong></p>
-    <p>You entered time: <strong>{{ time }}</strong> and your age is: <strong>{{ age }}</strong> for <strong>{{ gender }}</strong> divison</p>
-    <p>The Boston Marathon Cutoff time for your age and gender group is: <strong>{{ qual_time }}</strong></p>
-    <p>Time difference from predicted: <strong>{{ buffer }}</strong></p>
-    <h4 style="padding-bottom: 10px;">For more information on how and why we predicted this for your input, please visit the history page.</h4>
-
+    <div style="text-align: center">
+      <h1>Results</h1>
+      <p>We believe that the projected cutoff time based on the data entered would be: <strong>{{ predicted_cutoff }}</strong> so time: <strong>{{ predicted_cutoff_time }}</strong></p>
+      <p>Will you qualify for Boston? <strong>{{ result }}</strong></p>
+      <p>You entered time: <strong>{{ time }}</strong> and your age is: <strong>{{ age }}</strong> for <strong>{{ gender }}</strong> divison</p>
+      <p>The Boston Marathon Cutoff time for your age and gender group is: <strong>{{ qual_time }}</strong></p>
+      <p>Time difference from predicted: <strong>{{ buffer }}</strong></p>
+      <h4 style="padding-bottom: 10px;">For more information on how and why we predicted this for your input, please visit the history page.</h4>
+    </div>
 
     <h1>Interactive Tableau Dashboard</h1>
 
