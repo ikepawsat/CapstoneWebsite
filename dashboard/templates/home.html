@@ -12,9 +12,53 @@
     <p>Confidence Interval High: <strong>?</strong></p>
 </div>
 
-<H2>How Does Our Model Work?</H2>
-<p>info</p>
+<H1>How Does Our Model Work?</H1>
+<h3>Data</h3>
+<p>
+    We used data gathered from Brian Rock and his marathon predictor. Since his predictor did not focus on individual applicants or any
+    machine learning algorithm on them, we hoped that we could generate a better and more accurate cutoff time. We used his data from the 
+    Boston 2025 and 2026 races and qualifing windows. Additionally, we scrapped data from 2012-2019 off of the Boston Marathon website to
+    create a list of prior runners. Other small datasets were collected but not widely used throughout the project.
+</p>
+<h3>Model</h3>
+<p>
+    We tested dozens of models but ultimately ended up using a simple Gradient Boosting algorithm. The small complexity and small list of
+    features meant that a simplier model worked the best for us. The next two best models for us was logit and a simple neural network. This 
+    model was created to assign a probability of applying to each applicant, which was then used to create the cutoff time. By creating 
+    multiple instances of the model, we were also able to produce a confidence interval. Because the confidence interval is both low and
+    high, we take out the top and bottom 2.5% and make that our confidence interval. This means that we would be 95% sure that the cutoff 
+    time would have fallen in this range. Some other models we created were a model to predict applicants from the change in qualifiers year
+    over year, a model that predicted cutoff time from the number of applicants rejected, and a model that creates a "pressure-score" value
+    based on the previous year's cutoff time.
+</p>
+<h3>Prediction</h3>
+<p>
+    We have created our model that assigns individuals a "likelihood to apply" value. The next step is to place applicants in order, from
+    the highest buffer to the slowest. If an individual has a higher buffer time it means they were very far under the cutoff. For example,
+    If a 21 year old male ran a 2:50 marathon and the cutoff was 2:55, they would have a 5 minute "buffer time". It is important to note that
+    we use their probably to apply to determine whether they would apply. For example, if our threshold to apply is 60%, if they had a 55%
+    chance, they would not apply. This creates our applicant number, which we then use to create our cutoff time. If the expected number of 
+    applicants was 32,000, we draw the line at 32,000 individuals and whatever that buffer time is becomes our projected cutoff.
+</p>
 
-<h2>What Went Wrong?</h2>
-<p>explanation</p>
+<h1>Conclusions</h1>
+<h3>What Went Wrong?</h3>
+<p>
+    We believed that we could determine applicants from qualifiers; however, there was a big issue. The first was incomplete data. Our
+    data was missing about 7,000-8,000 Boston Marathon runners. This is extremely important because the only way to know that a person applied
+    to the Boston Marathon was to see if they ran the Boston Marathon. Additionally, this was just a difficult task. We knew we only had two
+    years of data and one had to be our test set. Further, the lack of clarity from the Boston Athletic Association (the people who organize
+    the marathon) hindered our knowledge on the behind the scenes process. This lack of clarity has always been a complaint, and is why we
+    wanted to be able to project a cutoff time.
+</p>
+<h3>Future Work</h3>
+<p>
+    In the future we would like to predict the change in qualifiers instead of predicting individual applicants. This would allow us to look
+    at more years of data and get rid of the data issues mentioned above. Additionally, if we were to predict applicants, we would try to
+    predict the correct number of applicants, rather than the correct individual. This would prioritize recall, which is something we tried to
+    do, just did not focus on enough. If your model can predict an accurate applicant number, it is easy to predict an accurate cut off time.
+    Currently, we are developing a model that predicts the cutoff time from months out. Our goal is to generate cutoff times from the start
+    of the cutoff period to the end. If we see that there are more or less qualifiers than years prior, we can then adjust our predicted
+    cutoff time to reflect to the change in qualifiers.
+</p>
 {% endblock %}
