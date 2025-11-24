@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'bmCutOffPredictor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,8 +82,8 @@ DATABASES = {
             'timeout': 20,  # 20 seconds
         }
     }
-}"""
-
+}
+"""
 #changed for render hosting
 import dj_database_url
 DATABASES = {
@@ -93,7 +93,7 @@ DATABASES = {
         ssl_require=True
     )
 }
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
