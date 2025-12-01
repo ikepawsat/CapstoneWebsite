@@ -2,14 +2,14 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<h1>2026 Projected Cutoff Time: 8:52</h1>
+<h1>2026 Projected Cutoff Time: 4:07</h1>
 
 <div style="text-align: center">
     <p>Based on <strong>91,336</strong> data points</p>
     <p>Predicted amount of current applicants: <strong>32,043</strong></p>
 
-    <p>Confidence Interval Low: <strong>?</strong></p>
-    <p>Confidence Interval High: <strong>?</strong></p>
+    <p>Confidence Interval Low: <strong>3:26</strong></p>
+    <p>Confidence Interval High: <strong>4:46</strong></p>
 </div>
 
 <H1>How Does Our Model Work?</H1>
@@ -29,7 +29,8 @@
     high, we take out the top and bottom 2.5% and make that our confidence interval. This means that we would be 95% sure that the cutoff 
     time would have fallen in this range. Some other models we created were a model to predict applicants from the change in qualifiers year
     over year, a model that predicted cutoff time from the number of applicants rejected, and a model that creates a "pressure-score" value
-    based on the previous year's cutoff time.
+    based on the previous year's cutoff time. In the end, we used this pressure score to augment the applicants predicted by our gradient boosting 
+    algorithm. This ultimately gave us the best results.
 </p>
 <h3>Prediction</h3>
 <p>
@@ -38,7 +39,9 @@
     If a 21 year old male ran a 2:50 marathon and the cutoff was 2:55, they would have a 5 minute "buffer time". It is important to note that
     we use their probably to apply to determine whether they would apply. For example, if our threshold to apply is 60%, if they had a 55%
     chance, they would not apply. This creates our applicant number, which we then use to create our cutoff time. If the expected number of 
-    applicants was 32,000, we draw the line at 32,000 individuals and whatever that buffer time is becomes our projected cutoff.
+    applicants was 32,000, we draw the line at 32,000 individuals and whatever that buffer time is becomes our projected cutoff. We also used
+    the pressure-score to augment the applicants. The pressure-score looks at previous years to predict the current demand for Boston bibs.
+    This allows us to correct for sudden drops or spikes in applicants.
 </p>
 
 <h1>Conclusions</h1>
